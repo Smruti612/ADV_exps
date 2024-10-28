@@ -1,0 +1,133 @@
+/* Container for all charts */
+#chart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-heading {
+    font-family: 'Arial', sans-serif; /* Choose a clean, modern font */
+    font-size: 32px;                  /* Large font size for emphasis */
+    color: #f6b127;                   /* A deep blue color for professionalism */
+    text-align: center;               /* Center-align the heading */
+    margin-top: 20px;                 /* Space at the top */
+    margin-bottom: 30px;              /* Space at the bottom */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+
+/* Individual chart container */
+#chart > svg {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Chart title styling */
+#chart text[style*="font-size: 16px"] {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-weight: 600;
+}
+
+/* Axis labels */
+#chart text[style*="font-size: 12px"] {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    fill: #666;
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    white-space: nowrap;
+}
+
+/* Bar chart specific styles */
+.bar {
+    transition: opacity 0.2s;
+}
+
+.bar:hover {
+    opacity: 0.8;
+}
+
+/* Pie chart specific styles */
+#chart path {
+    transition: opacity 0.2s;
+}
+
+#chart path:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Scatter plot specific styles */
+#chart circle {
+    transition: opacity 0.2s, r 0.2s;
+}
+
+#chart circle:hover {
+    opacity: 0.7;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Box plot specific styles */
+#chart rect {
+    transition: opacity 0.2s;
+}
+
+#chart rect:hover {
+    opacity: 0.8;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    #chart {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    #chart > svg {
+        min-height: 300px;
+    }
+}
+
+/* General chart improvements */
+.axis path,
+.axis line {
+    stroke: #ccc;
+}
+
+.axis text {
+    fill: #666;
+}
+
+/* Print media query for better printing */
+@media print {
+    #chart {
+        display: block;
+    }
+
+    #chart > svg {
+        page-break-inside: avoid;
+        max-height: 500px;
+    }
+}
